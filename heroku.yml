@@ -1,6 +1,13 @@
-setup:
-  addons:
-    - plan: heroku-postgresql:hobby-dev
 build:
   docker:
     web: Dockerfile
+
+setup:
+  addons:
+    - plan: heroku-postgresql:hobby-dev
+  config:
+    ENV KC_DB: postgres
+    ENV KC_DB_SCHEMA: public
+    ENV KC_PROXY: passthrough
+    ENV KC_DB_URL: "jdbc:$DATABASE_URL"
+    ENV KC_HOSTNAME_PORT: "$PORT"
