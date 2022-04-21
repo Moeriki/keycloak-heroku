@@ -7,17 +7,13 @@
   "logo": "https://www.keycloak.org/resources/images/keycloak_logo_480x108.png",
   "success_url": "/",
   "env": {
-    "KEYCLOAK_USER": {
+    "KEYCLOAK_ADMIN": {
       "description": "Initial Admin user name",
       "value": "admin"
     },
-    "KEYCLOAK_PASSWORD": {
+    "KEYCLOAK_ADMIN_PASSWORD": {
       "description": "Initial Admin password",
       "value": "change_me"
-    },
-    "PROXY_ADDRESS_FORWARDING": {
-      "description": "Set to true since we will be running behind Heroku's load balancers",
-      "value": "true"
     }
   },
   "formation": {

@@ -1,6 +1,9 @@
-FROM jboss/keycloak:latest
+FROM quay.io/keycloak/keycloak:17.0.1
 
-COPY docker-entrypoint.sh /opt/jboss/tools
+ENV KC_DB="postgres"
+ENV KC_DB_SCHEMA="public"
+ENV KC_DB_URL="jdbc:$DATABASE_URL"
+ENV KC_HOSTNAME_PORT="$PORT"
+ENV KC_PROXY="passthrough"
 
-ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh" ]
-CMD ["-b", "0.0.0.0"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
